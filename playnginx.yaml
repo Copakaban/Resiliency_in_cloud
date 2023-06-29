@@ -1,0 +1,15 @@
+---
+- hosts: all
+  remote_user: user
+  tasks:
+    - name: Install nginx
+      become: true
+      package:
+        name: nginx
+        state: latest
+    - name: Starting nginx 
+      become: true
+      service: 
+        name: nginx
+        state: started
+        masked: no
